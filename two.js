@@ -9,13 +9,56 @@ async function init() {
   let score = 0;
 
   data.forEach((d) => {
-    const [opp, me] = d.split(' ');
+    // const [opp, me] = d.split(' ');
+    // score += play(opp, me);
+    // score += value(me);
 
-    score += play(opp, me);
-    score += value(me);
+    const [opp, result] = d.split(' ');
+    score += playB(opp, result);
   });
 
   console.log(score);
+}
+
+function playB(opp, result) {
+  let score = 0;
+
+  if (result === 'X') {
+    // lose
+    if (opp === 'A') {
+      return 3;
+    }
+    if (opp === 'B') {
+      return 1;
+    }
+    if (opp === 'C') {
+      return 2;
+    }
+  }
+  if (result === 'Y') {
+    // tie
+    if (opp === 'A') {
+      return 4;
+    }
+    if (opp === 'B') {
+      return 5;
+    }
+    if (opp === 'C') {
+      return 6;
+    }
+  }
+  if (result === 'Z') {
+    // win
+    if (opp === 'A') {
+      return 8;
+    }
+    if (opp === 'B') {
+      return 9;
+    }
+    if (opp === 'C') {
+      return 7;
+    }
+  }
 }
 
 function play(opp, me) {
