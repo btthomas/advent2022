@@ -40,9 +40,9 @@ function enclosed(a1, a2, b1, b2) {
 }
 
 function overlap(a1, a2, b1, b2) {
-  if (a1 == b1 || a1 == b2 || a2 == b1 || a2 == b2) {
-    return true;
-  }
+  // if (a1 == b1 || a1 == b2 || a2 == b1 || a2 == b2) {
+  //   return true;
+  // }
   if (a1 <= b1) {
     if (a2 >= b1) {
       return true;
@@ -53,16 +53,16 @@ function overlap(a1, a2, b1, b2) {
       return true;
     }
   }
-  if (a2 >= b2) {
-    if (a1 <= b2) {
-      return true;
-    }
-  }
-  if (b2 >= a2) {
-    if (b1 <= a2) {
-      return true;
-    }
-  }
+  // if (a2 >= b2) {
+  //   if (a1 <= b2) {
+  //     return true;
+  //   }
+  // }
+  // if (b2 >= a2) {
+  //   if (b1 <= a2) {
+  //     return true;
+  //   }
+  // }
   return false;
 }
 
