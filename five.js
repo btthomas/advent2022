@@ -23,9 +23,16 @@ async function init() {
     from = parseInt(from) - 1;
     to = parseInt(to) - 1;
 
+    let temp = [];
+
     for (let i = 0; i < num; i++) {
-      stacks[to].push(stacks[from].pop());
+      // a
+      // stacks[to].push(stacks[from].pop());
+      // b
+      temp.push(stacks[from].pop());
     }
+    // b
+    temp.reverse().forEach((t) => stacks[to].push(t));
   });
 
   // console.log({ stacks });
