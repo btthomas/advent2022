@@ -29,6 +29,7 @@ async function init() {
   });
 
   // console.log(GRID.join('\n'));
+  console.time('a');
 
   GRID.forEach((row, i) => {
     row.forEach((d, j) => {
@@ -36,12 +37,14 @@ async function init() {
         x = j;
         y = i;
 
+        console.time('b');
         // reset the BEST
         GRID.forEach((row, i) => {
           BEST[i] = [];
         });
 
         findNext({ x, y }, 0);
+        console.timeEnd('b');
 
         if (BEST[endY][endX]) {
           ALL_BEST.push(BEST[endY][endX]);
@@ -49,6 +52,7 @@ async function init() {
       }
     });
   });
+  console.timeEnd('a');
 
   console.log(ALL_BEST.sort());
 }
